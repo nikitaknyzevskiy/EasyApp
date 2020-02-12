@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TriareBaseArch</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="paged_list_from_service">Paged list from service</string>
+    <string name="unresolved_error">Unresolved error</string>
+    <string name="lost_connection">Lost connection</string>
+    <string name="restart">Restart</string>
+    <string name="name">Name:</string>
+    <string name="id">id:</string>
+    <string name="email">Email:</string>
+</resources>

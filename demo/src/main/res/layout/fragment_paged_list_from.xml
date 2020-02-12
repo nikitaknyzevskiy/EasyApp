@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020.
+  ~ Nikita Knyazievsky
+  ~ Triare
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pagedlist_from_service.PagedListFromServiceFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pagedlist_listt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>

@@ -1,0 +1,9 @@
+<!--
+  ~ Copyright (c) 2020.
+  ~ Nikita Knyazievsky
+  ~ Triare
+  -->
+
+<resources>
+    <string name="app_name">Traire</string>
+</resources>

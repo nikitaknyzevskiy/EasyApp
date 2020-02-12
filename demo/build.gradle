@@ -1,0 +1,99 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply from: '../slack.gradle'
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+kapt {
+    generateStubs = true
+}
+
+def versionCodeM = 1
+
+def versionNameM = "1.0"
+
+def releaseNotesM = "relase note"
+
+def taskName = "Gradle"
+
+def testerGroup = "internal"
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode = 1
+        versionName = "$versionNameM"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+def room_version = "2.2.3"
+def nav_version = "2.1.0"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2'
+
+    //AndroidX
+    implementation "androidx.appcompat:appcompat:$androidx_version"
+    implementation "androidx.core:core-ktx:$androidx_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    //Triare
+    implementation project(":traire")
+
+    //Room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //Retrofit 2
+    implementation 'com.squareup.retrofit2:retrofit:2.7.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //Paging
+    implementation 'android.arch.paging:runtime:1.0.1'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+}
+
+slack {
+    text = 'Vitau shanoviy kolegie.\n Ya opublikuvav onovlennya'
+    versionName = versionNameM
+    releaseNotes = releaseNotesM
+    task = taskName
+    webHooks = 'https://hooks.slack.com/services/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'
+    testerGroupName = testerGroup
+    developer = 'Nikita'
+    versionCode = project.version
+}

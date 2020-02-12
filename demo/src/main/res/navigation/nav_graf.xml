@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020.
+  ~ Nikita Knyazievsky
+  ~ Triare
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graf"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.triare.basearch.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_pagedListFromServiceFragment"
+            app:destination="@id/pagedListFromServiceFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_usersLiveDataFragment"
+            app:destination="@id/usersLiveDataFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_userLIveDataFragment"
+            app:destination="@id/userLIveDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pagedListFromServiceFragment"
+        android:name="com.triare.basearch.pagedlist_from_service.PagedListFromServiceFragment"
+        android:label="fragment_paged_list_from"
+        tools:layout="@layout/fragment_paged_list_from" />
+    <fragment
+        android:id="@+id/usersLiveDataFragment"
+        android:name="com.triare.basearch.livedatalist.UsersLiveDataFragment"
+        android:label="fragment_users_live_data"
+        tools:layout="@layout/fragment_users_live_data" />
+    <fragment
+        android:id="@+id/userLIveDataFragment"
+        android:name="com.triare.basearch.userlivedata.UserLIveDataFragment"
+        android:label="fragment_user_live_data"
+        tools:layout="@layout/fragment_user_live_data" />
+</navigation>
